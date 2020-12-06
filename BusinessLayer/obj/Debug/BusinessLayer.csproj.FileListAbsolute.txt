@@ -1,6 +1,0 @@
-E:\Practices\MVC5_0001\BusinessLayer\bin\Debug\BusinessLayer.dll
-E:\Practices\MVC5_0001\BusinessLayer\bin\Debug\BusinessLayer.pdb
-E:\Practices\MVC5_0001\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
-E:\Practices\MVC5_0001\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
-E:\Practices\MVC5_0001\BusinessLayer\obj\Debug\BusinessLayer.dll
-E:\Practices\MVC5_0001\BusinessLayer\obj\Debug\BusinessLayer.pdb

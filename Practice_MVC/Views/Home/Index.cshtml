@@ -1,37 +1,26 @@
-﻿<!DOCTYPE html>
+﻿@using Practice_MVC.Model;
+@model IEnumerable<Product>
+
+@{
+    Layout = "~/Views/Shared/_BasicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
 <html>
 <head>
-    <meta name="viewport" content="witdth=device-width" />
-    @{
-        ViewBag.Title = "Index";
-    }
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <style>
-        .btn a {
-            color: white;
-            text-decoration: none;
-        }
-
-        body {
-            background-color: #F1F2F1;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
 </head>
 <body>
-
-    <div class="text-center">
-        <h2>
-            We're going to have an exciting party.<br />
-        </h2>
-        <h3>
-            And You are Invited !
-        </h3>
-        <div class="btn btn-success">
-            @Html.ActionLink("RSVP Now", "RsvpForm")
-        </div>
+    <div>
+        @foreach (var item in Model)  
+        {
+            <h3>Product Name: @item.Name</h3>
+            @item.Description
+            @item.Price.ToString("c")
+        }
     </div>
-
 </body>
 </html>
-
+ 

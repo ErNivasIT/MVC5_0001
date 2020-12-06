@@ -14,10 +14,40 @@ namespace Practice_MVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            int hours = DateTime.Now.Hour;
-            ViewBag.Greeting = hours < 12 ? "Good Morning" : "Good Afrernoon";
-            return View();
+            IEnumerable<Product> products = new List<Product> {
+             new Product()
+            {
+                Product_ID = 1,
+                Name = "Football",
+                Description = "Football Description",
+                Category = "WaterSports",
+                Price = 275M
+            },
+              new Product()
+            {
+                Product_ID = 2,
+                Name = "Surf Board",
+                Description = "Surf Board Description",
+                Category = "WaterSports",
+                Price = 275M
+            },
+              new Product()
+            {
+                Product_ID = 3,
+                Name = "Running Shoes",
+                Description = "Running Shoes Description",
+                Category = "WaterSports",
+                Price = 275M
+            }
+            };
+            return View(products);
         }
+        //public ActionResult Index()
+        //{
+        //    int hours = DateTime.Now.Hour;
+        //    ViewBag.Greeting = hours < 12 ? "Good Morning" : "Good Afrernoon";
+        //    return View();
+        //}
         [HttpGet]
         public ViewResult RsvpForm()
         {
@@ -35,7 +65,7 @@ namespace Practice_MVC.Controllers
                 string responseType = guestResponse.WillAttend.Value == true ? "Glad to hear that you are attending the party, See you there !!!"
                     : "It would be have better that you attend, be first on the next party !!!";
 
-                objModel.Body = "Dear " + guestResponse.Name + ", <br/> Thanks for your valuable response regarding the Invitation !!!<br/>"+ responseType;
+                objModel.Body = "Dear " + guestResponse.Name + ", <br/> Thanks for your valuable response regarding the Invitation !!!<br/>" + responseType;
 
                 MailMessage mail = new MailMessage();
                 mail.To.Add(objModel.To);
