@@ -1,0 +1,52 @@
+﻿@model GuestResponse.Model.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <h4>RSVP</h4>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>Your Name:</label>
+                    @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your Phone:</label>@Html.TextBoxFor(p => p.Phone, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Your Email:</label>@Html.TextBoxFor(p => p.Email, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Will Attend ? :</label>@Html.DropDownListFor(p => p.WillAttend,
+                        new[]
+                        {
+                        new SelectListItem() {Text="--Yes I will be there--", Value=bool.TrueString },
+                        new SelectListItem() { Text="--No I could not come--", Value=bool.FalseString }
+                        }, "--Choose Option", new { @class = "form-control" }
+                        );
+                </div>
+
+                <div class="text-center"><input type="submit" class="btn btn-success" value="Submit RSVP" /></div>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿@model GuestResponse.Model.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <title>Thanks</title>
+</head>
+<body>
+    @*@{
+        try
+        {
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 587;
+            WebMail.EnableSsl = true;
+            WebMail.SmtpUseDefaultCredentials = false;
+            WebMail.UserName = "shri.mca2010@gmail.com";
+            WebMail.Password = "GoodMail*123";
+            WebMail.From = "shri.mca2010@gmail.com";
+            WebMail.Send("shri.mca2010@gmail.com", "RSVP Notification", @Model.Name + " is intimating.");
+
+        }
+        catch (Exception ex)
+        {
+            @:<b>Sorry - we could not send the mail to confirm your RSVP.</b>
+            throw;
+        }
+
+    }*@
+    <div class="text-center">
+        <h1>Thanks @Model.Name</h1>
+        <div class="lead">
+            @if (Model.WillAttend == true)
+            {
+                @:It's great that you are coming, Drinking is fridge to you !!!
+            }
+            else
+            {
+                @:Sorry to know that you are not coming, but thanks for letting us to know !!!
+            }
+        </div>
+    </div>
+</body>
+</html>
